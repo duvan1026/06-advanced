@@ -3,7 +3,7 @@
  * 
  * @param {HTMLDivElement} element 
  */
-export const demoComponent = ( element ) => {
+export const callbaksComponent = ( element ) => {
 
-        console.log('demoComponent');
+        console.log('callbaksComponent');
 }
