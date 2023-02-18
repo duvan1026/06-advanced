@@ -9,7 +9,9 @@ export const callbaksComponent = ( element ) => {
         const id = '5d86371fd55e2e2a30fe1ccb1';
         findHero( id, (hero) => { // Se coloca cualquien nombre en la funcion
 
-                element.innerHTML = hero.name;
+                // element.innerHTML = hero?.name || 'No hay Heroe'; // forma para validar  ?  and ||
+                element.innerHTML = hero.name; // forma para validar  ?  and ||
+
         });
 
 }
