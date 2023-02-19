@@ -28,9 +28,7 @@ export const callbaksComponent = ( element ) => {
                         
                         element.innerHTML = `${ hero1.name } / ${ hero2.name }`;
                 })
-
         });
-
 }
 
 /**
