@@ -16,7 +16,7 @@ export const promiseComponent = ( element ) => {
  */
 const findHero = ( id ) => {
 
-        return new Promise(( resolve, reject )=> {
+        const promise = new Promise(( resolve, reject )=> {
                 
                 const hero = heroes.find( heroe => hero.id === id );
 
@@ -28,5 +28,7 @@ const findHero = ( id ) => {
                 reject( `Hero with id ${ id } not found` )
 
         });
+
+        return promise;
 
 }
