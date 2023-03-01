@@ -29,17 +29,25 @@ export const promiseComponent = ( element ) => {
 
         let hero1;
 
-        findHero( id1 )
-                // .then( (superHero) => renderHero( superHero ) );
-                .then( (hero1) => {
+        findHero(id1)// Todo promesas en cadena
+                .then( hero => {
+                        hero1 = hero;
+                        return findHero(id2);
+                }).then( hero2 => {
+                        renderTwoHeroes( hero1, hero2 )
+                })
+                .catch( renderError );
 
-                        findHero( id2 )
-                                .then( hero2 => {
-                                        renderTwoHeroes( hero1, hero2 );
-                                })
-                                .catch( renderError );
-                }) 
-                .catch( renderErro );
+        // findHero( id1 )
+        //         .then( (hero1) => {
+
+        //                 findHero( id2 )
+        //                         .then( hero2 => {
+        //                                 renderTwoHeroes( hero1, hero2 );
+        //                         })
+        //                         .catch( renderError );
+        //         }) 
+        //         .catch( renderErro );
 
 
 }
