@@ -10,7 +10,7 @@ export const promiseComponent = ( element ) => {
                 element.innerHTML = hero.name;
         }
 
-        const renderErro = ( error ) => {
+        const renderError = ( error ) => {
                 element.innerHTML = `
                         <h1>ERROR:</h1>
                         <h3>${ error }</h3>
@@ -36,8 +36,9 @@ export const promiseComponent = ( element ) => {
                         findHero( id2 )
                                 .then( hero2 => {
                                         renderTwoHeroes( hero1, hero2 );
-                                } );
-                } ) 
+                                })
+                                .catch( renderError );
+                }) 
                 .catch( renderErro );
 
 
