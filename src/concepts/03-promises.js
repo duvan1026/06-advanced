@@ -17,11 +17,27 @@ export const promiseComponent = ( element ) => {
                 `;
         }
 
-        const id1 = '5d86371f25a058e5b1c8a65e';
+        const renderTwoHeroes = ( hero1, hero2 ) => {
+                element.innerHTML = `
+                        <h3>${ hero1.name }</h3>
+                        <h3>${ hero2.name }</h3>
+                `;
+        }
+
+        const id1 = '5d86371f25a058e5b1c8a65e',
+              id2 = '5d86371f233c9f2425f16916';
+
+        let hero1;
 
         findHero( id1 )
                 // .then( (superHero) => renderHero( superHero ) );
-                .then( renderHero ) // Todo  Se realiza cuando todo sale bien, Prop-Tip si la función tiene los mismo argumentos de entrada, en el mismo orden se envia la funcion como refrencia
+                .then( (hero1) => {
+
+                        findHero( id2 )
+                                .then( hero2 => {
+                                        renderTwoHeroes( hero1, hero2 );
+                                } );
+                } ) 
                 .catch( renderErro );
 
 
