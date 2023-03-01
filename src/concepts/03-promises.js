@@ -10,12 +10,19 @@ export const promiseComponent = ( element ) => {
                 element.innerHTML = hero.name;
         }
 
+        const renderErro = ( error ) => {
+                element.innerHTML = `
+                        <h1>ERROR:</h1>
+                        <h3>${ error }</h3>
+                `;
+        }
+
         const id1 = '5d86371f25a058e5b1c8a65e';
 
         findHero( id1 )
                 // .then( (superHero) => renderHero( superHero ) );
-                .then( renderHero ); // Todo  Se realiza cuando todo sale bien
-                                     // Todo Prop-Tip si la función tiene los mismo argumentos de entrada, en el mismo orden se envia la funcion como refrencia
+                .then( renderHero ) // Todo  Se realiza cuando todo sale bien, Prop-Tip si la función tiene los mismo argumentos de entrada, en el mismo orden se envia la funcion como refrencia
+                .catch( renderErro );
 
 
 }
