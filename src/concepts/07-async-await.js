@@ -3,7 +3,7 @@
  * 
  * @param {HTMLDivElement} element 
  */
-export const demoComponent = ( element ) => {
+export const asyncAwait2Component = ( element ) => {
 
-        console.log('demoComponent');
+        console.log('asyncAwait2Component');
 }
