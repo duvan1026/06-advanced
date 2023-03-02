@@ -6,11 +6,11 @@ import { heroes } from "../data/heroes"
  */
 export const asyncComponent = ( element ) => {
 
-        const id1 = '5d86371fd55e2e2a30fe1ccb';
+        const id1 = '5d86371fd55e2e2a30fe1ccb5';
         console.log('Inicio de Componente')
 
-        findHero( id1 )
-                .then( console.log )
+        findHero( id1 )// Funcion asyncrona
+                .then( name => element.innerHTML = name )
                 .catch( error => element.innerHTML = error )
         
         console.log('Fin del componente');
@@ -25,5 +25,8 @@ const findHero = async( id ) => {//Todo (async) transforma la función a regresa
 
         const hero = heroes.find( hero => hero.id === id );
 
-        return hero?.name;
+        if( !hero )
+                throw `Hero with id ${ id } not found`;
+
+        return hero.name;
 }
