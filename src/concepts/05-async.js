@@ -7,10 +7,13 @@ import { heroes } from "../data/heroes"
 export const asyncComponent = ( element ) => {
 
         const id1 = '5d86371fd55e2e2a30fe1ccb';
+        console.log('Inicio de Componente')
 
         findHero( id1 )
-                .then( name => element.innerHTML = name )
+                .then( console.log )
                 .catch( error => element.innerHTML = error )
+        
+        console.log('Fin del componente');
 
 }
 /**
