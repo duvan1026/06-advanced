@@ -7,9 +7,18 @@ export const asyncAwait2Component = async( element ) => {
 
         console.time('Start');
 
-        const value1 = await slowPromise();
-        const value2 = await mediumPromise();
-        const value3 = await fastPromise();
+        //Todo: son promesas independientes entre sí
+        // const value1 = await slowPromise();
+        // const value2 = await mediumPromise();
+        // const value3 = await fastPromise();
+
+        // Espera a cada promesa se realiza, pero de manera simultanea 
+        // Luego desestructura el arreglo
+        const [value1, value2, value3] = await Promise.all([
+                slowPromise(),
+                mediumPromise(),
+                fastPromise(),       
+        ]);
 
         element.innerHTML =`
                 value1: ${ value1 } <br>
