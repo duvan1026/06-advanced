@@ -3,7 +3,7 @@
  * 
  * @param {HTMLDivElement} element 
  */
-export const demoComponent = ( element ) => {
+export const generatorsAsyncComponent = ( element ) => {
 
-        console.log('demoComponent');
+        console.log('generatorsAsyncComponent');
 }
