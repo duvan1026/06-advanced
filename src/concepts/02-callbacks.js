@@ -6,19 +6,29 @@ import { heroes } from "../data/heroes"
  */
 export const callbaksComponent = ( element ) => {
 
-        const id = '5d86371fd55e2e2a30fe1ccb1';
-        findHero( id, (error, hero) => { // Se coloca cualquien nombre en la funcion
+        const id1 = '5d86371fd55e2e2a30fe1ccb1';
+        const id2 = '5d86371fd55e2e2a30fe1ccb2';
+
+
+        findHero( id1, (error, hero1) => { // Se coloca cualquien nombre en la funcion
 
                 if ( error ){
                         element.innerHTML = error;
                         return;
                 }
 
-                // element.innerHTML = hero?.name || 'No hay Heroe'; // forma para validar  ?  and ||
-                element.innerHTML = hero.name; // forma para validar  ?  and ||
 
+                findHero( id2, (error, hero2 ) => {
+
+                        if ( error ){
+                                element.innerHTML = error;
+                                return;
+                        }
+
+                        
+                        element.innerHTML = `${ hero1.name } / ${ hero2.name }`;
+                })
         });
-
 }
 
 /**
